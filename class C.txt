@@ -1,0 +1,75 @@
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class C {
+	void simpleMessage() {
+		// TODO Auto-generated method stub
+		JFrame frame= new JFrame();
+		frame.setSize(300,300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JButton button=new JButton("Doctor Info");
+		JButton button1=new JButton("Patient Info");
+		JButton button2=new JButton("Cancle");
+	
+		
+		 button1.addActionListener(new ActionListener()
+		 {
+ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			Patient_info sh = new Patient_info();
+			sh.createUI();
+			
+			
+		}});
+		 
+		 button.addActionListener(new ActionListener()
+		 {
+ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			Doctor_info sh = new Doctor_info();
+			sh.createUI();
+			
+			
+		}});
+		 
+		 button2.addActionListener(new ActionListener()
+		 {
+ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+				
+		}});
+		//JLabel label1=new JLabel();
+		//label1.setText("Patient Info");
+		// JLabel label2 = new JLabel();
+		//label2.setText("Dr.Info");
+		JTextField field1=new JTextField();
+		JTextField field2=new JTextField();
+		//field1.setColumns(10);
+		//field2.setColumns(10);
+		JPanel panel1 =new JPanel();
+		//panel1.add (label1);
+		//panel1.add (label2);
+		panel1.add (field2);
+		panel1.add (field1);
+		panel1.add(button1);
+		panel1.add(button);
+		panel1.add(button2);
+		frame.add(panel1);
+		frame.setVisible(true);
+	
+}}

@@ -1,0 +1,77 @@
+
+import javax.swing.JOptionPane;
+
+import java.sql.*;
+
+public class Db {
+	
+	public Connection conn = null;
+	public Statement stmt = null;
+	public ResultSet res = null;
+
+	public Db() {
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+
+			System.out.println("driver not found");
+
+			return;
+
+		}
+
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "");
+			System.out.println("connected");
+
+		}
+
+		catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Connection problem");
+			System.out.println("Connection Fail");
+
+		}
+	}
+
+	public boolean login(String username , String password) throws SQLException {
+		boolean ans = false;
+		 try {
+			 String sql = "SELECT * FROM login WHERE user_name = ? and password = ?";
+			   PreparedStatement pst = (PreparedStatement)conn.prepareStatement(sql);
+		       pst.setString(1, username); 
+		       pst.setString(2, password); 
+		     
+		 String name = res.getString("user_name");
+	    
+	 
+	    System.out.println("name  "+name);
+	    ans = true;
+	
+   	  
+   	
+   	
+		 
+	}
+	
+	     
+	    
+    }
+	catch(Exception e){
+		  
+			 JOptionPane.showMessageDialog(null, "ERROR\nYou are doing some thing wrong !!.");
+	}
+return ans;
+}
+
+	}
+
+       res = pst.executeQuery();
+	
+	     while  (res.next())
+    {
+    
+    }
+	
+    
+

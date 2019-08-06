@@ -1,0 +1,82 @@
+
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;  
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class A {
+	
+	public Db db = new Db();
+public static void main(String[]args)
+{
+	
+	
+	
+	
+	
+	
+	JFrame frame= new JFrame();
+	frame.setSize(500,500);
+	frame.setTitle("Login");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	JLabel label1=new JLabel();
+	label1.setText("User Name");
+	 JLabel label2 = new JLabel();
+	label2.setText("Password");
+	JTextField field1=new JTextField();
+	
+	JTextField field2=new JTextField();
+	field1.setColumns(10);
+	field2.setColumns(10);
+	JButton button=new JButton("Login");
+ button.addActionListener(new ActionListener()
+		 {
+ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			String username = field1.getText();
+			String pass =field2.getText();
+			Db db = new Db();
+			boolean login = false;
+			try {
+				login = db.login(username,pass);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println(login);
+			if(login == true){
+				//JOptionPane.showMessageDialog(frame, "You are successfuly Login");
+				frame.setVisible(false);
+				B Bobj = new B();
+				Bobj.simpleMessage() ;
+				
+			}
+			else 
+			{
+				field1.setText("");
+				field2.setText("");
+				JOptionPane.showMessageDialog(frame, "You are  Not successfuly Login");
+			}
+			
+		}});
+		
+	//button.addActionListener(newActionEvent e);
+	JPanel panel1 =new JPanel();
+	panel1.add (label1);
+	panel1.add(field1);
+	panel1.add(field2);
+	panel1.add(button);
+	frame.add(panel1);
+	frame.setVisible(true);
+}
+}

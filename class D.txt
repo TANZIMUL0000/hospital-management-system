@@ -1,0 +1,36 @@
+
+
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class D {
+	void simpleMessage() {
+		// TODO Auto-generated method stub
+		JFrame frame= new JFrame();
+		frame.setSize(300,300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton button=new JButton("Patient Number");
+		JButton button1=new JButton("Patient Name");
+		JButton button2=new JButton("Others");
+		JButton button3=new JButton("Cancle");
+		JTextField field1=new JTextField();
+		JTextField field2=new JTextField();
+		JTextField field3=new JTextField();
+		JPanel panel1 =new JPanel();
+		
+		panel1.add (field2);
+		panel1.add (field1);
+		panel1.add (field3);
+		panel1.add(button);
+		panel1.add(button1);
+		panel1.add(button2);
+		panel1.add(button3);
+		frame.add(panel1);
+		frame.setVisible(true);
+}
+}
+
